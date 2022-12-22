@@ -14,8 +14,9 @@ commentRouter.get('/', withAuth, async (req, res) => {
 // POST/create a new user comment
 commentRouter.post('/', withAuth, async (req, res) => {
 	try {
+		const commentData = req.body
 		const createComment = await Comment.create({
-			...req.body,
+			...commentData,
 			userId: req.session.userId,
 		})
 		res.json(createComment)

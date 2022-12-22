@@ -13,11 +13,11 @@ blogPostRouter.get('/', async (req, res) => {
 })
 // POST/create a new blog post
 blogPostRouter.post('/', hasAuth, async (req, res) => {
-	const body = req.body
+	const postData = req.body
 
 	try {
 		const newPost = await BlogPost.create({
-			...body,
+			...postData,
 			userId: req.session.userId,
 		})
 		res.json(newPost)
