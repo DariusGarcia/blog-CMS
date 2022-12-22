@@ -1,10 +1,11 @@
-const router = require('express').Router()
+const userRouter = require('express').Router()
 const { User } = require('../../models/')
 
-router.post('/register', async (req, res) => {
+// POST/create a new user
+userRouter.post('/register', async (req, res) => {
 	try {
 		const registerUser = await User.create(req.body)
-
+		// saving user data to session storage in DB
 		req.session.save(() => {
 			req.session.userId = registerUser.id
 			req.session.username = registerUser.username
@@ -17,4 +18,4 @@ router.post('/register', async (req, res) => {
 	}
 })
 
-module.exports = router
+module.exports = userRouter
