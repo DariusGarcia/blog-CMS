@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001
 const hbs = expressHandlebars.create({ helpers })
 
 const sess = {
-	secret: process.env.SESSION_SECRET_KEY,
+	secret: '74vLqUS50mP4FNlPzfqd42IBnoL34823',
 	cookie: {
 		maxAge: 300000,
 		httpOnly: true,
