@@ -12,23 +12,24 @@ blogPostRouter.get('/', async (req, res) => {
 	}
 })
 // POST/create a new blog post
-blogPostRouter.post('/', hasAuth, async (req, res) => {
-	const postData = req.body
-
+blogPostRouter.post('/', async (req, res) => {
 	try {
+		const postData = req.body
 		const newPost = await BlogPost.create({
 			...postData,
 			userId: req.session.userId,
 		})
+
 		res.json(newPost)
 	} catch (err) {
 		res.status(500).json(err)
 	}
 })
 // UPDATE a single existing blog post
-blogPostRouter.put('/:id', hasAuth, async (req, res) => {
+blogPostRouter.put('/:id', async (req, res) => {
 	try {
-		const [makeChanges] = await BlogPost.update(req.body, {
+		const postData = req.body
+		const [makeChanges] = await BlogPost.update(postData, {
 			where: {
 				id: req.params.id,
 			},
@@ -39,8 +40,8 @@ blogPostRouter.put('/:id', hasAuth, async (req, res) => {
 		} else {
 			res.status(404).end()
 		}
-	} catch (err) {
-		res.status(500).json(err)
+	} catch (error) {
+		res.status(500).json(error)
 	}
 })
 
