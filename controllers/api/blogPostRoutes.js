@@ -1,8 +1,18 @@
-const router = require('express').Router()
+const blogPostRouter = require('express').Router()
 const { BlogPost } = require('../../models/')
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/userAuthHelper')
 
-router.post('/', async (req, res) => {
+// fetch ALL blog posts
+blogPostRouter.get('/', async (req, res) => {
+	try {
+		const allPosts = await BlogPost.findAll()
+		res.json(allPosts)
+	} catch (err) {
+		res.status(500).json(err)
+	}
+})
+// POST/create a new blog post
+blogPostRouter.post('/', hasAuth, async (req, res) => {
 	const body = req.body
 
 	try {
@@ -15,16 +25,16 @@ router.post('/', async (req, res) => {
 		res.status(500).json(err)
 	}
 })
-
-router.put('/:id', async (req, res) => {
+// UPDATE a single existing blog post
+blogPostRouter.put('/:id', hasAuth, async (req, res) => {
 	try {
-		const [affectedRows] = await BlogPost.update(req.body, {
+		const [makeChanges] = await BlogPost.update(req.body, {
 			where: {
 				id: req.params.id,
 			},
 		})
 
-		if (affectedRows > 0) {
+		if (makeChanges > 0) {
 			res.status(200).end()
 		} else {
 			res.status(404).end()
@@ -33,4 +43,5 @@ router.put('/:id', async (req, res) => {
 		res.status(500).json(err)
 	}
 })
-module.exports = router
+
+module.exports = blogPostRouter
