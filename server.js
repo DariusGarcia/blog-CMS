@@ -5,17 +5,17 @@ const expressHandlebars = require('express-handlebars')
 const routes = require('./controllers')
 const helpers = require('./utils/helpers')
 
-const sequelize = require('./config/connection')
+const sequelize = require('./config/connection.js')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const app = express()
 const PORT = process.env.PORT || 3001
 
-// Set up Handlebars.js engine with custom helpers
+// pass in util helper functions into handlebars
 const hbs = expressHandlebars.create({ helpers })
 
 const sess = {
-	secret: 'Super secret secret',
+	secret: process.env.SESSION_SECRET_KEY,
 	cookie: {
 		maxAge: 300000,
 		httpOnly: true,
@@ -31,7 +31,7 @@ const sess = {
 
 app.use(session(sess))
 
-// Inform Express.js on which template engine to use
+// set the express engine to Handlebars
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
@@ -39,8 +39,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-// app.use(routes)
+app.use(routes)
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
 	app.listen(PORT, () => console.log(`Now listening on ${PORT}!`))
 })
