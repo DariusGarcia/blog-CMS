@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="flex-column min-100-vh">
+<body class="">
       <!-- Navigation bar -->
     <header class='header'>
       <!-- Logo -->
@@ -22,8 +22,8 @@
       <!-- Menu -->
       <nav class='nav'>
         <ul class='menu'>
-          <li><a href='/'>Dashboard</a></li>
-          <li><a href='/blogs'>Blogs</a></li>
+          <li><a href='/'>Blogs</a></li>
+          <li><a href='/dashboard'>Dashboard</a></li>
           <li><a href='/login'>Login</a></li>
          <li class='nav-item'><a
             href=''
@@ -33,17 +33,23 @@
         </ul>
       </nav>
     </header>
-  <header class="hero">
-    <h1 class="app-title"><a href="/dashboard">Your Dashboard</a></h1>
+  <header class="dashboard-header">
+    <h1 class=""><a href="/dashboard"> Dashboard</a></h1>
   </header>
 
   <main class="content">
+     <a class='newPostBtn' href="/dashboard/new">Create a new post</a>
     {{{body}}}
   </main>
 
-  <footer class="footer flex-row justify-center">
-    <a href="/dashboard/new">➕ New Post</a>
-  </footer>
+  <footer class='footer'>
+      <ul>
+        <li class='nav-item'><a href='/' class='href'>Blogs</a></li>
+        <li class='nav-item'><a href='/dashboard' class='href'>Dashboard</a></li>
+        <li class='nav-item'><a href='/login' class='href'>Login</a></li>
+       
+      </ul>
+    </footer>
 </body>
 
 <script src="/js/home.js"></script>

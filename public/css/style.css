@@ -12,11 +12,17 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+    color: black
+}
+
 /* Navbar */
 .content {
-    height: 600px;
     display: grid;
     place-items: center;
+    padding: 1rem 0;
+
 }
 
 /* Header */
@@ -157,6 +163,62 @@ body {
     opacity: 30%;
 }
 
+/* blog post */
+.blogPosts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    background-color: gainsboro;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24rem;
+    background-color: gainsboro;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.card-body:hover {
+    opacity: 80%;
+}
+
+/* dashboard layout */
+.dashboard-header {
+    display: flex;
+    justify-content: center;
+
+}
+
+.posts {
+    min-height: 100vh;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.newPostBtn {
+    text-align: center;
+    margin-bottom: 2rem;
+    background-color: rgb(17, 125, 226);
+    padding: .5rem;
+    width: 12rem;
+    border-radius: 8px;
+    color: white;
+
+}
+
 /* Responsiveness */
 @media (min-width: 48em) {
     header {
@@ -179,10 +241,15 @@ body {
     .menu a:hover {
         background-color: transparent;
         color: #85888c;
-
     }
 
     .hamb {
         display: none;
+    }
+}
+
+@media (min-width: 1000px) {
+    .content {
+        min-height: 80%;
     }
 }

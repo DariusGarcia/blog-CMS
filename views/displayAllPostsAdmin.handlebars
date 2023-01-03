@@ -1,8 +1,10 @@
 <div class="posts list-group">
   {{#each blogPosts}}
-    <a class="list-item flex-row justify-space-between" href="/dashboard/edit/{{id}}">
-      <span>{{title}}</span>
-      <span>{{format_date createdAt}}</span>
+    <a class="" href="/dashboard/edit/{{id}}">
+     <div class="card-body"> 
+      <h2>{{title}}</h2>
+      <p>{{format_date createdAt}}</p>
+      </div>
     </a>
   {{/each}}
 </div>
