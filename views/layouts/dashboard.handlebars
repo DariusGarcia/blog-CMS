@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog</title>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="flex-column min-100-vh">
+      <!-- Navigation bar -->
+    <header class='header'>
+      <!-- Logo -->
+      <a href='/' class='logo'>Blog Hub</a>
+      <!-- Hamburger icon -->
+      <input class='side-menu' type='checkbox' id='side-menu' />
+      <label class='hamb' for='side-menu'><span
+          class='hamb-line'
+        ></span></label>
+      <!-- Menu -->
+      <nav class='nav'>
+        <ul class='menu'>
+          <li><a href='/'>Dashboard</a></li>
+          <li><a href='/blogs'>Blogs</a></li>
+          <li><a href='/login'>Login</a></li>
+         <li class='nav-item'><a
+            href=''
+            class='href'
+            id='logout-nav-item'
+          >Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+  <header class="hero">
+    <h1 class="app-title"><a href="/dashboard">Your Dashboard</a></h1>
+  </header>
+
+  <main class="content">
+    {{{body}}}
+  </main>
+
+  <footer class="footer flex-row justify-center">
+    <a href="/dashboard/new">➕ New Post</a>
+  </footer>
+</body>
+
+<script src="/js/home.js"></script>
+
+</html>

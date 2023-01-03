@@ -1,0 +1,50 @@
+<html lang='en'>
+  <head>
+    <link />
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>The Blog</title>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <header class='header'>
+      <!-- Logo -->
+      <a href='/' class='logo'>Blog Hub</a>
+      <!-- Hamburger icon -->
+      <input class='side-menu' type='checkbox' id='side-menu' />
+      <label class='hamb' for='side-menu'><span
+          class='hamb-line'
+        ></span></label>
+      <!-- Menu -->
+      <nav class='nav'>
+        <ul class='menu'>
+          <li><a href='/'>Dashboard</a></li>
+          <li><a href='/blogs'>Blogs</a></li>
+          <li><a href='/login'>Login</a></li>
+         <li class='nav-item'><a
+            href=''
+            class='href'
+            id='logout-nav-item'
+          >Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Main content -->
+    <main class='content'>
+      {{{body}}}
+    </main>
+    <!-- footer -->
+    <footer class='footer'>
+      <ul>
+        <li class='nav-item'><a href='/' class='href'>Home</a></li>
+        <li class='nav-item'><a href='/dashboard' class='href'>Blog</a></li>
+        <li class='nav-item'><a href='/login' class='href'>Login</a></li>
+       
+      </ul>
+    </footer>
+  </body>
+</html>
+
+<script src='/js/home.js'></script>
